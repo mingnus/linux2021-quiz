@@ -127,7 +127,7 @@ void *con_pop(con_queue_t *queue)
     }
 
     /* Queue not empty: retrieve data and rewire */
-    void *return_value = node->value;
+    void *return_value = new_header->value;
     queue->first = new_header;
 
     mtx_unlock(queue->first_mutex);
