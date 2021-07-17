@@ -36,7 +36,7 @@ static unsigned int iceil2(unsigned int x)
     x = x | (x >> 4);
     x = x | (x >> 8);
     x = x | (x >> 16);
-    return XXX;
+    return x + 1;  // returns power-of-two
 }
 
 /* mmap a new memory pool of TOTAL_SZ bytes, then build an internal
@@ -202,7 +202,7 @@ void mpool_repool(mpool *mp, void *p, int sz)
     }
 
     void **ip = (void **) p;
-    YYY;
+    *ip = NULL;  // no succeeding free cells
     assert(ip);
     mp->hs[i] = ip;
 }
