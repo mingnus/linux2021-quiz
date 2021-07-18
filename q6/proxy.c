@@ -64,8 +64,8 @@ static void proxy(int cl_fd, int target_fd)
     }
 
     struct pollfd polls[2] = {
-        [1] = {III},
-        [0] = {JJJ},
+        [1] = {.fd = target_fd, .events = POLLIN},
+        [0] = {.fd = cl_fd, .events = POLLIN},
     };
 
     int ret;
